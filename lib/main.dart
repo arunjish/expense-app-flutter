@@ -1,10 +1,12 @@
+import 'package:expense_app/widgets/new_transaction.dart';
+import 'package:expense_app/widgets/user_transaction.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp( MyApp());
+import 'widgets/transaction_list.dart';
+
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,7 +17,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
- 
 
   @override
   Widget build(BuildContext context) {
@@ -23,21 +24,22 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Expense App'),
       ),
-      body: Column(
-        children: [
-          Container(
-            width: double.infinity,
-            child: const Card(
-              color: Colors.blue,
-              elevation: 5,
-              child: Text('CHART!'),
-              
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              width: double.infinity,
+              child: const Card(
+                color: Colors.blue,
+                elevation: 5,
+                child: Text('CHART!'),
+              ),
             ),
-          ),
-          Card(
-            child: Text('Expense list'),
-          )
-        ],
+            UserTransaction()
+          ],
+        ),
       ),
     );
   }
