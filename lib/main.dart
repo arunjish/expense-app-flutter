@@ -12,6 +12,22 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Expense App',
       home: MyHomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        fontFamily: 'Quicksand',
+        textTheme: ThemeData.light().textTheme.copyWith(
+              titleLarge: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18),
+            ),
+        appBarTheme: AppBarTheme(
+          titleTextStyle: TextStyle(
+              fontFamily: 'OpenSans',
+              fontSize: 20,
+              fontWeight: FontWeight.bold),
+        ),
+      ),
     );
   }
 }
@@ -26,8 +42,11 @@ class _MyHomePageState extends State<MyHomePage> {
     showModalBottomSheet(
         context: ctx,
         builder: (_) {
-          return NewTransaction(
-            addTx: _addTransaction,
+          return GestureDetector(
+            onTap: () {},
+            child: NewTransaction(
+              addTx: _addTransaction,
+            ),
           );
         });
   }
